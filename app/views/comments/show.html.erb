@@ -1,0 +1,30 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div class="container">
+		<p id="notice"><%= notice %></p>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="module">
+					<div class="module-body">
+
+						<p>
+				  			<strong>Name:</strong>
+				  			<%= @comment.name %>
+						</p>
+
+						<p>
+						  <strong>Comment:</strong>
+						  <%= @comment.comment %>
+						</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<button type="submit" class="btn btn-default" ><%= link_to 'New Comment', new_comment_path %></button>
+		<!--<button type="submit" class="btn btn-default" ><%= link_to 'Edit Comment', edit_comment_path(@comment) %></button>-->
+		</div>
+	</body>
+</html>

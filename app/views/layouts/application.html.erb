@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Do Not Delete!!! -->
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+	  	<%= stylesheet_link_tag "bootstrap" %>
+	  	<%= stylesheet_link_tag "bootstrap1" %>
+	  	<title>Twitter on Rails</title>
+	</head>
+	<body>
+	<nav class="navbar navbar-static-top navbar-default" role="navigation">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+					<a class="navbar-brand" href="/">
+					<span>Twitter on Rails<small><i> search, approve, and  filter tweets and comments</i></small></span></a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+				<% if current_user %>
+				  <li><a href="#">Signed in as <%= current_user.user_name %></a></li>
+				  <li><%= link_to "Logout", '/logout' %></li>
+				<% else %>
+				  <li><%= link_to 'Home', '/' %></li>
+				  <li><%= link_to 'Login', '/login' %></li>
+				  <li><%= link_to 'Register', '/register' %></li>
+				<% end %>
+			</ul>
+			</div>
+		</div>
+	</nav>
+	<% flash.each do |key, value| %>
+		<%= content_tag :div, value, class: "alert alert-#{key}" %>
+	<% end %>
+	<%= yield %>
+	</body>
+</html>
